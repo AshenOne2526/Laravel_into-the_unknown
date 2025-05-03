@@ -1,0 +1,113 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Title Styles */
+h1.display-4 {
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #004085;
+    text-transform: uppercase;
+}
+
+/* Navbar Styling */
+.navbar {
+    padding: 1rem 0;
+    background-color: rgba(0, 0, 0, 0.5)!important;
+}
+
+.navbar-brand {
+    font-size: 1.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar-nav .nav-link:hover {
+    color: #fff;
+}
+
+/* Card Styles */
+.card {
+    border: none;
+    border-radius: 12px;
+    background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card .btn {
+    padding: 10px 20px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.card .btn:hover {
+    background-color: #004085;
+    color: #fff;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+    h1.display-4 {
+        font-size: 2.5rem;
+    }
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 575px) {
+    h1.display-4 {
+        font-size: 2rem;
+    }
+    .card-body {
+        padding: 20px;
+    }
+}
