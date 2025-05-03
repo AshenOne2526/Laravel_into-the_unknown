@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
+use App\Models\Tag;
 
 class PostController extends Controller
 {
@@ -13,9 +14,14 @@ class PostController extends Controller
      */
     public function index()
     {
-        $Posts = Post::all();
-        
-        return view('post.index', compact('Posts'));
+        /*$post = Post::find(1);
+        dd($post->tags);*/
+
+        $tag = Tag::find(1);
+        dd($tag->posts);
+
+        //$Posts = Post::all();
+        //return view('post.index', compact('Posts'));
     }
 
     /**
