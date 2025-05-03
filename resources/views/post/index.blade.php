@@ -6,6 +6,9 @@
         <div class="text-center mb-5">
             <h1 class="display-4 text-primary font-weight-bold">Latest Posts</h1>
         </div>
+        <div class="text-right mb-4">
+            <a href="{{ route('post.create') }}" class="btn btn-success">Create New Post</a>
+        </div>
 
         <!-- Posts Grid -->
         <div class="row">
@@ -16,7 +19,7 @@
                         <div class="card-body">
                             <h5 class="card-title font-weight-bold text-dark">{{ $post->name }}</h5>
                             <p class="card-text text-muted">Here’s a brief introduction to this post. It’s concise but inviting.</p>
-                            <a class="btn btn-outline-primary btn-lg text-primary">Read More</a>
+                            <a href="{{ route('post.show', $post->id) }}" class="btn btn-outline-primary btn-lg text-primary">Read More</a>
                         </div>
                     </div>
                 </div>

@@ -32,7 +32,7 @@
     @yield('content')
 
     <!-- Footer -->
-    <footer class="bg-dark text-center text-white py-4">
+    <footer class="bg-dark text-center text-white py-4 mt-auto">
         <p>© 2025 Into the Unknown. All rights reserved.</p>
     </footer>
 </body>

@@ -31,47 +31,41 @@ class PostController extends Controller
      */
     public function create()
     {
-        $PostsArr = [
-            [
-                'name' => 'Post1',
-                'price' => 1000,
-                'is_published' => 1
-            ],
-            [
-                'name' => 'Post2',
-                'price' => 2000
-            ]
-        ];
-
-        foreach ($PostsArr as $item){
-            Post::create($item);
-        }
-
-        dd('created');
+        return view('post.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePostRequest $request)
+    public function store()
     {
-        //
+        $validated = request()->validate([
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+        ]);
+
+        Post::create([
+            'name' => $validated['name'],
+            'price' => $validated['price'],
+        ]);
+        
+        return redirect()->route('post.index')->with('success', 'Post created successfully!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Post $Post)
+    public function show(Post $post)
     {
-        //
+        return view('post.show', compact('post'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $Post)
+    public function edit(Post $post)
     {
-        //
+        return view('post.edit', compact('post'));
     }
 
     /**
@@ -82,27 +76,27 @@ class PostController extends Controller
         dd($Post);
     }*/
 
-    public function update()
+    public function update(Post $post)
     {
-        $Post = Post::find(1);
-        dump($Post->name);
-
-        $Post->update([
-            'name' => 'new Post2'
+        $validated = request()->validate([
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
         ]);
 
-        $Post = Post::find(1);
-        dump($Post->name);
+        $post->update([
+            'name' => $validated['name'],
+            'price' => $validated['price'],
+        ]);
+        
+        return redirect()->route('post.show', $post->id)->with('success', 'Post updated successfully!');
     }
 
-    public function delete(){
-        $Post = Post::find(1);
-        if($Post){
-            $Post->delete();
-            dd('deleted');
-        }else{
-            dd('nothing to delete');
-        }
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Post $post){
+        $post->delete();
+        return redirect()->route('post.index')->with('success', 'Post deleted successfully!');
     }
 
     public function restore(){
@@ -136,13 +130,5 @@ class PostController extends Controller
         $Post = Post::updateOrCreate(['name' => $newPost['name']],$newPost);
 
         dd($Post);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Post $Post)
-    {
-        //
     }
 }

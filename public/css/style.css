@@ -1,5 +1,8 @@
 /* Global Styles */
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures body takes up full viewport height */
     font-family: 'Poppins', sans-serif;
     background-color: #f4f7fa;
     color: #333;
@@ -83,9 +86,15 @@ h1.display-4 {
 }
 
 /* Footer Styling */
+.flex-grow-1 {
+    flex-grow: 1; /* Makes the content section take up the remaining space */
+}
+
+/* Footer styles */
 footer {
+    margin-top: auto; /* Ensures footer is always at the bottom */
     background-color: #343a40;
-    color: #ffffff;
+    color: white;
     padding: 20px 0;
 }
 
