@@ -18,6 +18,16 @@
                 <input type="number" id="price" name="price" class="form-control" placeholder="Enter price" step="0.01" required>
             </div>
 
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="category_id">Category</label>
+                <select class="form-select" id="category_id" name="category_id">
+                  <option selected>Select the category</option>
+                  @foreach ($Categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->title }}</option>
+                  @endforeach
+                </select>
+              </div>
+
             <div class="form-group text-center">
                 <button type="submit" class="btn btn-primary btn-lg">Create Post</button>
             </div>

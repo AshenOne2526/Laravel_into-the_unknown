@@ -24,6 +24,10 @@
             <div class="card-body">
                 <h5 class="card-title">{{ $post->name }}</h5>
                 <p class="card-text"><strong>Price:</strong> ${{ number_format($post->price, 2) }}</p>
+                <p class="card-text">
+                    <strong>Category:</strong>
+                    {{ $post->category ? $post->category->title : 'No category assigned' }}
+                </p>
             </div>
         </div>
 

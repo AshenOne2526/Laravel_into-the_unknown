@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 
@@ -17,11 +18,11 @@ class PostController extends Controller
         /*$post = Post::find(1);
         dd($post->tags);*/
 
-        $tag = Tag::find(1);
-        dd($tag->posts);
+        /*$tag = Tag::find(1);
+        dd($tag->posts);*/
 
-        //$Posts = Post::all();
-        //return view('post.index', compact('Posts'));
+        $Posts = Post::all();
+        return view('post.index', compact('Posts'));
     }
 
     /**
@@ -37,7 +38,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('post.create');
+        $Categories = Category::all();
+
+        return view('post.create', compact('Categories'));
     }
 
     /**
@@ -48,11 +51,14 @@ class PostController extends Controller
         $validated = request()->validate([
             'name' => 'required|string|max:255',
             'price' => 'required|numeric|min:0',
+            'category_id' => 'required|numeric|min:0',
         ]);
+
 
         Post::create([
             'name' => $validated['name'],
             'price' => $validated['price'],
+            'category_id' => $validated['category_id'],
         ]);
         
         return redirect()->route('post.index')->with('success', 'Post created successfully!');
@@ -71,7 +77,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('post.edit', compact('post'));
+        $Categories = Category::all();
+
+        return view('post.edit', compact('post','Categories'));
     }
 
     /**
@@ -87,11 +95,13 @@ class PostController extends Controller
         $validated = request()->validate([
             'name' => 'required|string|max:255',
             'price' => 'required|numeric|min:0',
+            'category_id' => 'required|numeric|min:0',
         ]);
 
         $post->update([
             'name' => $validated['name'],
             'price' => $validated['price'],
+            'category_id' => $validated['category_id'],
         ]);
         
         return redirect()->route('post.show', $post->id)->with('success', 'Post updated successfully!');
