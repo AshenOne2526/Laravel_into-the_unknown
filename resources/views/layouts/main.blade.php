@@ -18,14 +18,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
+                    <li class="nav-item mx-3">
                         <a class="nav-link" href="{{ route('post.index') }}">Post</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mx-3">
                         <a class="nav-link" href="{{ route('about.index') }}">About</a>
                     </li>
                 </ul>
-            </div>
+            </div>            
         </div>
     </nav>
 

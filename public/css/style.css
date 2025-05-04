@@ -2,10 +2,10 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensures body takes up full viewport height */
+    min-height: 100vh;
     font-family: 'Poppins', sans-serif;
-    background-color: #f4f7fa;
-    color: #333;
+    background-color: #f9f5ef;
+    color: #2e4e1c;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -14,92 +14,124 @@ body {
 /* Title Styles */
 h1.display-4 {
     font-size: 3rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: #004085;
-    text-transform: uppercase;
+    font-weight: 700;
+    color: #355e3b;
+    text-transform: none;
 }
 
 /* Navbar Styling */
 .navbar {
     padding: 1rem 0;
-    background-color: rgba(0, 0, 0, 0.5)!important;
+    background-color: transparent !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .navbar-brand {
-    font-size: 1.75rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #355e3b !important;
+    text-transform: none;
+    letter-spacing: 0.5px;
 }
 
 .navbar-nav .nav-link {
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    color: #253e27 !important;
+    transition: color 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #fff;
+    color: #355e3b !important;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #fefcf6;
+    position: relative;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #355e3b;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.25rem;
+    color: #4f6f52;
+    margin-bottom: 30px;
+}
+
+.hero-section .btn-primary {
+    background-color: #e94e1b;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.hero-section .btn-primary:hover {
+    background-color: #d13d0e;
 }
 
 /* Card Styles */
 .card {
     border: none;
-    border-radius: 12px;
-    background-color: #ffffff;
+    border-radius: 20px;
+    background-color: #fffef9;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
 }
 
 .card-body {
-    padding: 30px;
+    padding: 25px;
 }
 
 .card-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .card-text {
-    font-size: 1.1rem;
-    color: #555;
+    font-size: 1rem;
 }
 
 .card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.08);
 }
 
 .card .btn {
-    padding: 10px 20px;
-    font-size: 1.125rem;
+    padding: 10px 25px;
+    font-size: 1rem;
     font-weight: 600;
     border-radius: 25px;
-    transition: background-color 0.3s ease;
+    border: 1px solid #355e3b;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .card .btn:hover {
-    background-color: #004085;
+    background-color: #355e3b;
     color: #fff;
 }
 
 /* Footer Styling */
-.flex-grow-1 {
-    flex-grow: 1; /* Makes the content section take up the remaining space */
-}
-
-/* Footer styles */
 footer {
-    margin-top: auto; /* Ensures footer is always at the bottom */
-    background-color: #343a40;
-    color: white;
+    margin-top: auto;
+    background-color: #f0ede4;
+    color: #4f6f52;
     padding: 20px 0;
+    text-align: center;
 }
 
 footer p {
     margin: 0;
+    font-size: 0.95rem;
 }
 
 /* Responsive Design */
@@ -107,14 +139,17 @@ footer p {
     h1.display-4 {
         font-size: 2.5rem;
     }
-    .navbar-nav .nav-link {
-        font-size: 1rem;
+    .hero-section h1 {
+        font-size: 2.5rem;
     }
 }
 
 @media (max-width: 575px) {
     h1.display-4 {
         font-size: 2rem;
+    }
+    .hero-section {
+        padding: 50px 15px;
     }
     .card-body {
         padding: 20px;
