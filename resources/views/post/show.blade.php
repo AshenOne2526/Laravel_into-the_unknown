@@ -31,6 +31,21 @@
             </div>
         </div>
 
+        <div class="mt-4">
+            <h5>Tags:</h5>
+            @if ($post->tags->isNotEmpty())
+                <ul class="list-inline">
+                    @foreach ($post->tags as $tag)
+                        <li class="list-inline-item">
+                            <span class="badge bg-primary">{{ $tag->title }}</span>
+                        </li>
+                    @endforeach
+                </ul>
+            @else
+                <p>No tags assigned.</p>
+            @endif
+        </div>
+
         <div class="text-center">
             <a href="{{ route('post.index') }}" class="btn btn-secondary btn-lg">Back to Posts</a>
         </div>

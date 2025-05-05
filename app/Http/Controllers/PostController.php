@@ -39,8 +39,9 @@ class PostController extends Controller
     public function create()
     {
         $Categories = Category::all();
+        $Tags = Tag::all();
 
-        return view('post.create', compact('Categories'));
+        return view('post.create', compact('Categories','Tags'));
     }
 
     /**
@@ -52,14 +53,20 @@ class PostController extends Controller
             'name' => 'required|string|max:255',
             'price' => 'required|numeric|min:0',
             'category_id' => 'required|numeric|min:0',
+            'tags' => 'array', // validate that it's an array
+            'tags.*' => 'integer|exists:tags,id', // each tag must be a valid tag id
         ]);
 
 
-        Post::create([
+        $post = Post::create([
             'name' => $validated['name'],
             'price' => $validated['price'],
             'category_id' => $validated['category_id'],
         ]);
+
+        if (isset($validated['tags'])) {
+            $post->tags()->sync($validated['tags']);
+        }
         
         return redirect()->route('post.index')->with('success', 'Post created successfully!');
     }
@@ -69,6 +76,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        $post->load('tags');
         return view('post.show', compact('post'));
     }
 

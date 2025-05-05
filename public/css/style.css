@@ -155,3 +155,79 @@ footer p {
         padding: 20px;
     }
 }
+
+.badge {
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    border-radius: 20px;
+    background-color: #6c757d;
+    transition: background-color 0.3s ease;
+}
+
+.badge:hover {
+    background-color: #004085;
+    color: #fff;
+}
+
+/* Card Enhancements */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 1.5rem;
+    background-color: #ffffff;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Title */
+.card-title {
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+}
+
+/* Card Text */
+.card-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #6c757d;
+}
+
+/* Price Text */
+.text-success {
+    font-size: 1.1rem;
+}
+
+/* Button */
+.btn-outline-primary {
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: #004085;
+    color: #fff;
+    border-color: #004085;
+}
+
+/* Hero Section */
+section.py-5 {
+    background: #f8f9fa;
+    border-radius: 0 0 20px 20px;
+}
+
+section h1 {
+    font-size: 2.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #004085;
+}
+
+@media (max-width: 575px) {
+    section h1 {
+        font-size: 2rem;
+    }
+}
