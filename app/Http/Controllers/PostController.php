@@ -6,7 +6,6 @@ use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Category;
 use App\Models\Post;
-use App\Models\PostTag;
 use App\Models\Tag;
 
 class PostController extends Controller
@@ -16,9 +15,6 @@ class PostController extends Controller
      */
     public function index()
     {
-        /*$post = Post::find(1);
-        dd($post->tags);*/
-
         /*$tag = Tag::find(1);
         dd($tag->posts);*/
 
@@ -66,7 +62,7 @@ class PostController extends Controller
         ]);
 
         if (isset($validated['tags'])) {
-            $post->tags()->sync($validated['tags']);
+            $post->tag()->sync($validated['tags']);
         }
         
         return redirect()->route('post.index')->with('success', 'Post created successfully!');
@@ -77,7 +73,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $post->load('tags');
+        $post->load('tag');
         return view('post.show', compact('post'));
     }
 
@@ -117,7 +113,7 @@ class PostController extends Controller
         ]);
 
         if (isset($validated['tags'])) {
-            $post->tags()->sync($validated['tags']);
+            $post->tag()->sync($validated['tags']);
         }
         
         return redirect()->route('post.show', $post->id)->with('success', 'Post updated successfully!');

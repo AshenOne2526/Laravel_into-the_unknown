@@ -8,18 +8,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
-    /** @use HasFactory<\Database\Factories\PostFactory> */
     use HasFactory;
     use SoftDeletes;
 
+    protected $guarded = false;
     protected $table = 'posts';
-    protected $guarded = [];
 
-    public function tags(){
-        return $this->belongsToMany(Tag::class, 'post_tags' ,'post_id','tag_id');
+    public function category(){
+        return $this->belongsTo(Category::class);
     }
 
-    public function category() {
-        return $this->belongsTo(Category::class);
+    public function tag(){
+        return $this->belongsToMany(Tag::class);
     }
 }

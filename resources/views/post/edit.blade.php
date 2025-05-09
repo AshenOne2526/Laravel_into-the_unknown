@@ -36,7 +36,7 @@
                 <select name="tags[]" id="tags" class="form-control" multiple>
                     @foreach ($Tags as $tag)
                         <option
-                        @foreach ($post->tags as $postTag)
+                        @foreach ($post->tag as $postTag)
                             {{ $tag->id == $postTag->id ? 'selected' : '' }}
                         @endforeach
                         value="{{ $tag->id }}">{{ $tag->title }}</option>
