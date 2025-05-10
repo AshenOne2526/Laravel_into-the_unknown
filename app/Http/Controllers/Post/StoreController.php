@@ -3,19 +3,13 @@
 namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Post\StoreRequest;
 use App\Models\Post;
 
 class StoreController extends Controller
 {
-    public function __invoke(){
-        $validated = request()->validate([
-            'name' => 'required|string|max:255',
-            'price' => 'required|numeric|min:0',
-            'category_id' => 'required|numeric|min:0',
-            'tags' => 'array', // validate that it's an array
-            'tags.*' => 'integer|exists:tags,id', // each tag must be a valid tag id
-        ]);
-
+    public function __invoke(StoreRequest $request){
+        $validated = $request->validated();
 
         $post = Post::create([
             'name' => $validated['name'],

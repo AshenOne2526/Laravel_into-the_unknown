@@ -3,18 +3,13 @@
 namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Post\UpdateRequest;
 use App\Models\Post;
 
 class UpdateController extends Controller
 {
-    public function __invoke(Post $post){
-        $validated = request()->validate([
-            'name' => 'required|string|max:255',
-            'price' => 'required|numeric|min:0',
-            'category_id' => 'required|numeric|min:0',
-            'tags' => 'array', // validate that it's an array
-            'tags.*' => 'integer|exists:tags,id', // each tag must be a valid tag id
-        ]);
+    public function __invoke(UpdateRequest $request, Post $post){
+        $validated = $request->validated();
 
         $post->update([
             'name' => $validated['name'],
