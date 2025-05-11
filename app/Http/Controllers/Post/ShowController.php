@@ -7,7 +7,7 @@ use App\Models\Post;
 class ShowController extends BaseController
 {
     public function __invoke(Post $post){
-        $post->load('tag');
+        $post->load('tags');
         return view('post.show', compact('post'));
     }
 }

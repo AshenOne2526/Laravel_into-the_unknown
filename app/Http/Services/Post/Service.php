@@ -15,7 +15,7 @@ class Service extends Controller
         ]);
 
         if (isset($validated['tags'])) {
-            $post->tag()->sync($validated['tags']);
+            $post->tags()->attach($validated['tags']);
         }
     }
 
@@ -27,7 +27,7 @@ class Service extends Controller
         ]);
 
         if (isset($validated['tags'])) {
-            $post->tag()->sync($validated['tags']);
+            $post->tags()->sync($validated['tags']);
         }
     }
 

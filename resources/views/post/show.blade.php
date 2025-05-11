@@ -33,9 +33,9 @@
 
         <div class="mt-4">
             <h5>Tags:</h5>
-            @if ($post->tag->isNotEmpty())
+            @if ($post->tags->isNotEmpty())
                 <ul class="list-inline">
-                    @foreach ($post->tag as $tag)
+                    @foreach ($post->tags as $tag)
                         <li class="list-inline-item">
                             <span class="badge bg-primary">{{ $tag->title }}</span>
                         </li>

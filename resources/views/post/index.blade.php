@@ -12,7 +12,7 @@
     <!-- Posts Grid -->
     <div class="container">
         <div class="row g-4">
-            @foreach ($Posts as $post)
+            @foreach ($posts as $post)
                 <div class="col-md-6 col-lg-4">
                     <div class="card h-100 border-0 shadow rounded-4 overflow-hidden">
                         <div class="card-body d-flex flex-column">
