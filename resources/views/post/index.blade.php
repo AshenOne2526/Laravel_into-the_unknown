@@ -30,6 +30,6 @@
     </div>
 
     <div class="d-flex justify-content-center mt-4">
-        {{ $posts->links('vendor.pagination.bootstrap-4') }}
+        {{ $posts->withQueryString()->links('vendor.pagination.bootstrap-4') }}
     </div>
 @endsection
