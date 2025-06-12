@@ -10,6 +10,8 @@ use App\Http\Controllers\Post\StoreController;
 use App\Http\Controllers\Post\UpdateController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Admin\Post\IndexController as AdminPostIndexController; 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -24,4 +26,11 @@ Route::prefix('posts')->name('post.')->group(function(){
     Route::delete('/{post}', DestroyController::class)->name('delete');
 });
 
+Route::prefix('admin')->name('admin.')->group(function(){
+    Route::prefix('post')->name('post.')->group(function(){
+        Route::get('/', AdminPostIndexController::class)->name('index');
+    });    
+});  
+
+Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
