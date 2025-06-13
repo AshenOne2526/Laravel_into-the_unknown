@@ -10,7 +10,8 @@ use App\Http\Controllers\Post\StoreController;
 use App\Http\Controllers\Post\UpdateController;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Admin\Post\IndexController as AdminPostIndexController; 
+use App\Http\Controllers\Admin\Post\IndexController as AdminPostIndexController;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,3 +35,6 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
