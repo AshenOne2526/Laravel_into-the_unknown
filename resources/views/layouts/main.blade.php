@@ -24,6 +24,11 @@
                     <li class="nav-item mx-3">
                         <a class="nav-link" href="{{ route('about.index') }}">About</a>
                     </li>
+                    @can('view',auth()->user())
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="{{ route('admin.post.index') }}">Admin panel</a>
+                        </li>
+                    @endcan
                 </ul>
             </div>            
         </div>
