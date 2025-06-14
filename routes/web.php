@@ -27,8 +27,8 @@ Route::prefix('posts')->name('post.')->group(function(){
     Route::delete('/{post}', DestroyController::class)->name('delete');
 });
 
-Route::prefix('admin')->name('admin.')->group(function(){
-    Route::prefix('post')->name('post.')->group(function(){
+Route::prefix('admin')->name('admin.')->middleware('admin')->group(function(){
+    Route::prefix('posts')->name('post.')->group(function(){
         Route::get('/', AdminPostIndexController::class)->name('index');
     });    
 });  
